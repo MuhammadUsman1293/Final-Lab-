@@ -1,0 +1,62 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "b3d81831",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "'NoneType' object is not callable",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[16], line 6\u001b[0m\n\u001b[0;32m      4\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m np\u001b[38;5;241m.\u001b[39mmean((image1\u001b[38;5;241m-\u001b[39mimage2)\u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39m\u001b[38;5;241m2\u001b[39m)\n\u001b[0;32m      5\u001b[0m original_image\u001b[38;5;241m=\u001b[39mcv2\u001b[38;5;241m.\u001b[39mimread(\u001b[38;5;124mr\u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mC:\u001b[39m\u001b[38;5;124m\\\u001b[39m\u001b[38;5;124mUsers\u001b[39m\u001b[38;5;124m\\\u001b[39m\u001b[38;5;124mUser\u001b[39m\u001b[38;5;124m\\\u001b[39m\u001b[38;5;124mDownloads\u001b[39m\u001b[38;5;124m\\\u001b[39m\u001b[38;5;124mflame_ir_G.fits\u001b[39m\u001b[38;5;124m\"\u001b[39m,\u001b[38;5;241m0\u001b[39m)\n\u001b[1;32m----> 6\u001b[0m denoised_image\u001b[38;5;241m=\u001b[39mcv2\u001b[38;5;241m.\u001b[39mGaussianBlur(original_image(\u001b[38;5;241m5\u001b[39m,\u001b[38;5;241m5\u001b[39m),\u001b[38;5;241m0\u001b[39m)\n\u001b[0;32m      7\u001b[0m mse_value\u001b[38;5;241m=\u001b[39m(original_image,denoised_image)\n\u001b[0;32m      8\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124mf\u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mMean Squared Error:\u001b[39m\u001b[38;5;124m\"\u001b[39m,{mse_value})\n",
+      "\u001b[1;31mTypeError\u001b[0m: 'NoneType' object is not callable"
+     ]
+    }
+   ],
+   "source": [
+    "import cv2\n",
+    "import numpy as np\n",
+    "def mse(image1,image2):\n",
+    "    return np.mean((image1-image2)**2)\n",
+    "original_image=cv2.imread(r\"C:\\Users\\User\\Downloads\\flame_ir_G.fits\",0)\n",
+    "denoised_image=cv2.GaussianBlur(original_image(5,5),0)\n",
+    "mse_value=(original_image,denoised_image)\n",
+    "print(f\"Mean Squared Error:\",{mse_value})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5afd1591",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
